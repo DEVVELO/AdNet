@@ -1,6 +1,7 @@
 <?php
 ob_start();	
 include_once("connect.php");
+include_once("send_in.php");
 ?>
 <html>
 <head>
@@ -99,7 +100,7 @@ $error = $error + 1;
 if($error == 0){
 	//Insert into database and print success message
 	echo '<div class="alert alert-dismissible alert-success" style="width:400px;">
-  <strong>Success!</strong> An activation email has been sent to you.
+  <strong>Success.</strong> You can now login with your registered details!
 </div>';	
 mysqli_query($con,"INSERT INTO users(email,username,password) VALUES('$email','$username','$password')");
 
@@ -109,8 +110,8 @@ $msg="Welcome! Your activation link is: " . $website_link . "/login.php?acti=".$
 $ac_link = $website_link . "/login.php?acti=".$ackey;
 $subject = "Activation Link\r\n";
 
-	mail($email,$subject,$msg);
-	mysqli_query($con,"UPDATE users SET activation='$ac_link' WHERE email='$email'");
+//	mail($email,$subject,$msg);
+	mysqli_query($con,"UPDATE users SET activation='$ac_link',status='1' WHERE email='$email'");
 	
 	
 }

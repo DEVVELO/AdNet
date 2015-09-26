@@ -2,6 +2,7 @@
 ob_start();	
 session_start();
 include_once("connect.php");
+include_once("send_in.php");
 function cleanInput($input) {
 
   $search = array(
