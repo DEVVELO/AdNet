@@ -20,7 +20,7 @@ include_once("connect.php");;
       </button>
       <a class="navbar-brand" href="index">AdNet</a>
     </div>
-
+  
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <?php if(!isset($_SESSION['in'])){echo  '<li><a href="index">Home <span class="sr-only">(current)</span></a></li>';
